@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebGoals:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="WebGoals.war">
+      <element id="artifact" artifact-name="WebGoals:war exploded" />
+    </root>
+  </artifact>
+</component>
