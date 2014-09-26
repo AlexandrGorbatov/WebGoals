@@ -3,8 +3,6 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>Archetype Created Web Application</display-name>
-
     <!-- Описуем сервлет для обработки всех запросов, DispatcherServlet распределяет какой запрос отдавать какому контроллеру  -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
@@ -12,6 +10,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <!-- Создаёт контейнер Spring, разделяемый всеми сервлетами и фильтрами -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
@@ -20,13 +22,11 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/applicationConfig.xml</param-value>
+        <param-value>
+            /WEB-INF/spring/applicationConfig.xml
+        </param-value>
     </context-param>
 
-    <!-- Создаёт контейнер Spring, разделяемый всеми сервлетами и фильтрами -->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -37,18 +37,5 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.png</url-pattern>
     </servlet-mapping>
-
-    <context-param>
-        <param-name>context2component</param-name>
-        <param-value>${env.context2component}</param-value>
-    </context-param>
-    <context-param>
-        <param-name>configSrc</param-name>
-        <param-value>${env.configSrc}</param-value>
-    </context-param>
-    <context-param>
-        <param-name>configRoot</param-name>
-        <param-value>${env.configRoot}</param-value>
-    </context-param>
 
 </web-app>
